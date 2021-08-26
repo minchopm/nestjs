@@ -16,10 +16,10 @@ export class ProductsController {
 
   @Post()
   async addProduct(
-    @Body('article') prodArticle: string,
+    @Body('article') article: string,
   ) {
     const generatedId = await this.productsService.insertProduct(
-      prodArticle,
+      article,
     );
     return { id: generatedId };
   }
