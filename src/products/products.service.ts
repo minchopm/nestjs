@@ -11,8 +11,6 @@ export class ProductsService {
   ) {}
 
   async insertProduct(doc: string) {
-    // tslint:disable-next-line:no-console
-    console.log(doc);
     const newProduct = new this.productModel({
       document: doc,
     });
