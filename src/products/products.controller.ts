@@ -18,6 +18,8 @@ export class ProductsController {
   async addProduct(
     @Body('article') article: string,
   ) {
+    // tslint:disable-next-line:no-console
+    console.log('a', article);
     const generatedId = await this.productsService.insertProduct(
       article,
     );
