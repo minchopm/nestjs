@@ -16,7 +16,7 @@ export class ProductsController {
 
   @Post()
   async addProduct(
-    @Body('article') article: string,
+    @Body() article: string,
   ) {
     // tslint:disable-next-line:no-console
     console.log('a', article);
