@@ -12,7 +12,7 @@ export class ProductsService {
 
   async insertProduct(doc: string) {
     const newProduct = new this.productModel({
-      document: doc,
+      article: doc,
     });
     const result = await newProduct.save();
     return result.id as string;
@@ -22,7 +22,7 @@ export class ProductsService {
     const products = await this.productModel.find().exec();
     return products.map(prod => ({
       id: prod.id,
-      document: prod.document,
+      article: prod.article,
     }));
   }
 
@@ -30,17 +30,17 @@ export class ProductsService {
     const product = await this.findProduct(productId);
     return {
       id: product.id,
-      document: product.document,
+      article: product.article,
     };
   }
 
   async updateProduct(
     productId: string,
-    document: string,
+    article: string,
   ) {
     const updatedProduct = await this.findProduct(productId);
-    if (document) {
-      updatedProduct.document = document;
+    if (article) {
+      updatedProduct.article = article;
     }
     updatedProduct.save();
   }
