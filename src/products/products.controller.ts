@@ -16,12 +16,10 @@ export class ProductsController {
 
   @Post()
   async addProduct(
-    @Body() article: string,
+    @Body('document') document: string,
   ) {
-    // tslint:disable-next-line:no-console
-    console.log('a', article);
     const generatedId = await this.productsService.insertProduct(
-      article,
+      document,
     );
     return { id: generatedId };
   }
@@ -40,9 +38,9 @@ export class ProductsController {
   @Patch(':id')
   async updateProduct(
     @Param('id') prodId: string,
-    @Body('article') prodArticle: string,
+    @Body('document') proddocument: string,
   ) {
-    await this.productsService.updateProduct(prodId, prodArticle);
+    await this.productsService.updateProduct(prodId, proddocument);
     return null;
   }
 
